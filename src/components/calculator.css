@@ -1,0 +1,151 @@
+/* ROOT */
+:root{
+    --text-color:#000;
+    --back-color:rgb(255, 255, 255);
+    user-select: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+div.keypad-buttons-grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+    padding: 10px;
+}
+
+div.calculator-container{
+    border: 6px solid var(--text-color);
+    border-radius: 6px;
+    background-color: var(--back-color);
+    transition: all 300ms ease-in-out;
+    overflow: scroll;
+
+    background: #fbae3c;
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(7.6px);
+    -webkit-backdrop-filter: blur(7.6px);
+}
+
+div.top-bar{
+    border-bottom: solid 2px #000;
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    background-color: rgb(0, 0, 0);
+    color: #fbae3c;
+    padding-left: 5px;
+}
+
+div.calculator-container:is(:hover, :focus-visible, :active){
+    filter: drop-shadow(25px 25px 8px #0000002f);
+    transform: scale(2);
+    box-shadow: 0 0 100px #fbcb1f42;
+}
+
+div.keypad-buttons-grid button{
+    
+    background: #FBCA1F;
+    font-family: inherit;
+    font-weight: 900;
+    font-size: 18px;
+    border: 3px solid black;
+    border-radius: 0.4em;
+    box-shadow: 0.1em 0.1em;
+       
+}
+
+div.keypad-buttons-grid button:hover {
+    transform: translate(-0.05em, -0.05em);
+    box-shadow: 0.15em 0.15em;
+   }
+   
+div.keypad-buttons-grid button:active {
+    transform: translate(0.05em, 0.05em);
+    box-shadow: 0.05em 0.05em;
+    background-color: #fbae3c;
+   }
+
+button.fullbtn{
+    width: 100%;
+}
+
+input#display{
+    background-color: #002a4a;
+    filter: brightness(1.1);
+    width: 100%;
+    height: 55px;
+    border: none;
+    font-size: 18px;
+    padding: 0 10px;
+    color: white;
+    overflow-x: scroll;
+}
+
+input#display:is(:active, :focus-visible){
+    outline: none;
+}
+
+button{
+    font-weight: 800;
+}
+
+@media (max-width:600px){
+
+    div.top-bar{
+        display: none;
+    }
+
+    div.calculator-container{
+        height: 100vh;
+        width: 100vw;
+        border-radius: 0;
+    }
+    div.calculator-container,
+    div.keypad-buttons-grid button{
+        transition: none;
+    }
+
+    div.keypad-buttons-grid{
+        height: 60%;
+    }
+
+    div.keypad-buttons-grid button{
+        transition: none;
+        font-size: 3vh;
+        height: auto;
+    }
+
+    div.keypad-buttons-grid button:hover {
+        transform: translate(-0.05em, -0.05em);
+        box-shadow: 0.15em 0.15em;
+       }
+       
+    div.keypad-buttons-grid button:active {
+        transform: translate(0.05em, 0.05em);
+        box-shadow: 0.05em 0.05em;
+        background-color: #fbae3c;
+       }
+    
+
+    div.calculator-container:is(:hover, :focus-visible, :active){
+        filter: drop-shadow(0 0 0 #000);
+        transform: scale(1);
+    }
+
+    input#display{
+        background-color: #002a4a;
+        filter: brightness(1.1);
+        width: 100%;
+        height: 30%;
+        border-bottom: black 8px solid;
+        font-size: 90px;
+        padding: 0 10px;
+        color: white;
+    }
+}
